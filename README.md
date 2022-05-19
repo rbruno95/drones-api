@@ -9,9 +9,8 @@ Implemented using Ruby on Rails.
 
 To avoid complex installations to run the project, you can create a docker image and run it locally.
 
-You only need to follow the next steps:
+You only need to do:
 
 ```
-docker build --tag drones .
-docker run -p 3000:3000 drones
+docker-compose up -d
 ```

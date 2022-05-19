@@ -52,3 +52,5 @@ gem 'faker', '~> 2.21'
 
 gem 'rubocop-rails', '~> 2.14'
 gem 'rubocop', '~> 1.29'
+
+gem 'whenever', require: false
