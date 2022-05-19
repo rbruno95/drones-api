@@ -14,8 +14,14 @@ AllCops:
 Style:
   Enabled: true
 
+Layout:
+  Enabled: true
+
 Style/Documentation:
   Enabled: false
 
 Layout/EmptyLineAfterMagicComment:
   Enabled: true
+
+Style/GuardClause:
+  Enabled: false
