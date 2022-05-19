@@ -23,7 +23,7 @@ module Api
     private
 
     def permitted_params
-      params.require(:drone).permit(:serial_number,:model, :weight_limit, :battery_capacity, :state)
+      params.require(:drone).permit(:serial_number, :model, :weight_limit, :battery_capacity, :state)
     end
   end
 end
