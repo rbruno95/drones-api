@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Drone < ApplicationRecord
   validates :serial_number, :model, :weight_limit, :battery_capacity, :state, presence: true
   validates :serial_number, uniqueness: true, length: { in: 1..100 }
@@ -26,8 +28,6 @@ class Drone < ApplicationRecord
   private
 
   def cannot_load_with_low_battery
-    if (battery_capacity < 25) && LOADING?
-      errors.add(:base, 'This drone cannot load with less battery than 25%')
-    end
+    errors.add(:base, 'This drone cannot load with less battery than 25%') if (battery_capacity < 25) && LOADING?
   end
 end

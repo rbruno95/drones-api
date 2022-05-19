@@ -1,0 +1,20 @@
+AllCops:
+  NewCops: disable
+  DisabledByDefault: true
+  TargetRubyVersion: 3.1.2
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'etc/**/*'
+    - 'guides/**/*'
+    - 'lib/**/*'
+
+Style:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
