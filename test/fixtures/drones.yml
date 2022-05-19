@@ -1,0 +1,6 @@
+valid:
+  serial_number: ABC
+  model: 0
+  weight_limit: 500
+  battery_capacity: 30
+  state: 0
