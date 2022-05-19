@@ -9,6 +9,7 @@ AllCops:
     - 'etc/**/*'
     - 'guides/**/*'
     - 'lib/**/*'
+    - 'vendor/**/*'
 
 Style:
   Enabled: true
