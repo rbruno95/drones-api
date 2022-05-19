@@ -9,6 +9,14 @@ class MedicationTest < ActiveSupport::TestCase
     assert @medication.valid?
   end
 
+  test 'valid with an image' do
+    image = File.open(Rails.root.join('test', 'fixtures', 'files', 'pills.png'))
+    @medication.cover_image.attach(io: image, filename: 'pills.png')
+
+    assert @medication.valid?
+    assert @medication.cover_image.attached?
+  end
+
   test 'invalid name' do
     @medication.name = 'abc@'
 
