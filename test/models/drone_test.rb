@@ -11,6 +11,13 @@ class DroneTest < ActiveSupport::TestCase
     assert @drone.valid?
   end
 
+  test 'valid drone carrying medications' do
+    medication = medications(:valid)
+    medication.drone = @drone
+
+    assert @drone.valid?
+  end
+
   test 'invalid too long serial' do
     @drone.serial_number = 'A' * 110
 
@@ -30,6 +37,16 @@ class DroneTest < ActiveSupport::TestCase
 
     refute @drone.valid?
     assert_not_nil @drone.errors[:battery]
+  end
+
+  test 'invalid drone carrying medications' do
+    medication = medications(:valid)
+    medication.weight = 600
+
+    @drone.medications << medication
+
+    refute @drone.valid?
+    assert_not_nil @drone.errors[:weight_limit]
   end
 
   test 'invalid drone cannot load with low battery' do
