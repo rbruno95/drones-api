@@ -1,13 +1,5 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  weight: 1
-  code: MyString
-  drone_id: 1
-
-two:
-  name: MyString
-  weight: 1
-  code: MyString
-  drone_id: 1
+valid:
+  name: MEDic-12_4
+  weight: 300
+  code: ABC_124
+  drone: valid
