@@ -1,6 +1,6 @@
 class Drone < ApplicationRecord
-  validates :serial, :model, :weight_limit, :battery_capacity, :state, presence: true
-  validates :serial, uniqueness: true, length: { in: 1..100 }
+  validates :serial_number, :model, :weight_limit, :battery_capacity, :state, presence: true
+  validates :serial_number, uniqueness: true, length: { in: 1..100 }
 
   validates :battery_capacity, numericality: { in: 0..100 }
   validates :weight_limit, numericality: { in: 0..500 }
