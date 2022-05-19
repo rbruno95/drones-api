@@ -31,9 +31,7 @@ class Drone < ApplicationRecord
   private
 
   def can_carry_medications?
-    if medications.map(&:weight).sum > weight_limit
-      errors.add(:weight_limit, 'This drone cannot carry this medication due to its weight limit.')
-    end
+    errors.add(:weight_limit, 'This drone cannot carry this medication due to its weight limit.') if medications.map(&:weight).sum > weight_limit
   end
 
   def cannot_load_with_low_battery
