@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_19_014149) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_19_053037) do
   create_table "drones", force: :cascade do |t|
     t.string "serial_number", null: false
     t.integer "model", default: 0, null: false
     t.integer "weight_limit", null: false
     t.integer "battery_capacity", null: false
     t.integer "state", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "medications", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "weight", null: false
+    t.string "code", null: false
+    t.integer "drone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
