@@ -22,7 +22,7 @@ class DroneTest < ActiveSupport::TestCase
     @drone.serial_number = 'A' * 110
 
     refute @drone.valid?
-    assert_not_nil @drone.errors[:serial]
+    assert_not_nil @drone.errors[:serial_number]
   end
 
   test 'invalid too much weight limit' do
@@ -43,14 +43,14 @@ class DroneTest < ActiveSupport::TestCase
     @drone.battery_capacity = 120
 
     refute @drone.valid?
-    assert_not_nil @drone.errors[:battery]
+    assert_not_nil @drone.errors[:battery_capacity]
   end
 
   test 'invalid negative battery' do
     @drone.battery_capacity = -50
 
     refute @drone.valid?
-    assert_not_nil @drone.errors[:battery]
+    assert_not_nil @drone.errors[:battery_capacity]
   end
 
   test 'invalid drone carrying medications' do
