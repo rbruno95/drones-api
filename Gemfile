@@ -54,3 +54,5 @@ gem 'rubocop-rails', '~> 2.14'
 gem 'rubocop', '~> 1.29'
 
 gem 'whenever', require: false
+
+gem "active_model_serializers", "~> 0.10.13"
