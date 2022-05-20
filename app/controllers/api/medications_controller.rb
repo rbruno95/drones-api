@@ -2,6 +2,8 @@
 
 module Api
   class MedicationsController < ApplicationController
+    include ActionController::Serialization
+
     before_action :find_drone
 
     def index
