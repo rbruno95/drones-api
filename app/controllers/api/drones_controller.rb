@@ -2,6 +2,8 @@
 
 module Api
   class DronesController < ApplicationController
+    include ActionController::Serialization
+
     def index
       render json: Drone.all
     end
