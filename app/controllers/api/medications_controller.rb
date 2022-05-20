@@ -23,7 +23,7 @@ module Api
     private
 
     def permitted_params
-      params.require(:medication).permit(:name, :weight, :code)
+      params.require(:medication).permit(:name, :weight, :code, :cover_image)
     end
 
     def find_drone

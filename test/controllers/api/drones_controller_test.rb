@@ -18,7 +18,7 @@ module Api
       assert_response :success
 
       json_response = JSON.parse(response.body)
-      assert_equal @drone.as_json, json_response
+      assert_equal @drone.id, json_response['id']
     end
 
     test 'should create drone' do
