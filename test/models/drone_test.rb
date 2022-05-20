@@ -50,7 +50,7 @@ class DroneTest < ActiveSupport::TestCase
     @drone.battery_capacity = -50
 
     refute @drone.valid?
-    assert_not_nil @drone.errors[:weight_limit]
+    assert_not_nil @drone.errors[:battery]
   end
 
   test 'invalid drone carrying medications' do
