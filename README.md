@@ -9,11 +9,42 @@ Implemented using Ruby on Rails.
 
 To avoid complex installations to run the project, you can create a docker image and run it locally.
 
-You only need to do:
+You only need to do the following steps:
 
 ```
-docker-compose up -d
+# build the docker images
+$ docker-compose build
+
+# create, migrate and seed the database
+$ docker-compose run web rake db:create db:migrate db:seed
+
+# run the images in the background
+$ docker-compose up -d
 ```
+
+By default the application is going to run on http://0.0.0.0:3000
+
+### About audit drone battery periodic task
+
+Once you run the images, you can check how a periodic task is
+inserting into the database info about the battery level of every drone
+
+To check that, you need to do the following steps:
+
+```
+Enter to the drones-api_web_1 container in interactive mode
+$ docker exec -it drones-api_web_1 bash
+
+To enter to an irb session where you can query the database using ActiveRecord ORM
+$ rails c
+
+To see the logs 
+> DroneLog.all
+```
+
+The task is going to run every minute,
+so if you wait a little bit and
+you do the same query you are going to find more logs
 
 ## API
 
