@@ -34,7 +34,7 @@ jobs:
 
       - name: Run Minitest
         run: |
-          bundle exec db:setup
+          bundle exec rake db:setup
           bundle exec rake test
         env:
           RAILS_ENV: test
