@@ -21,11 +21,11 @@ services:
     tty: true
     stdin_open: true
 
-#  cron_job:
-#    build: .
-#    command: cron -f
-#    depends_on:
-#      - db
+  cron_job:
+    build: .
+    command: cron -f
+    depends_on:
+      - db
 
 volumes:
   pgdata:
