@@ -57,6 +57,6 @@ gem 'whenever', require: false
 
 gem 'active_model_serializers', '~> 0.10.13'
 
-gem "pg", "~> 1.3"
+gem 'pg', '~> 1.3'
 
-gem "dotenv-rails", "~> 2.7"
+gem 'dotenv-rails', '~> 2.7'

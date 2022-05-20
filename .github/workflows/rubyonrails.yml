@@ -11,8 +11,8 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: mysecretpassword
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - uses: actions/checkout@v2
@@ -29,22 +29,14 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
 
-      - name: Setup Database
-        run: |
-          cp config/database.yml.github-actions config/database.yml
-          bundle exec rake db:create
-          bundle exec rake db:schema:load
-        env:
-          RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-
       - name: Run Rubocop
         run: bundle exec rubocop
 
       - name: Run Minitest
-        run: bundle exec rake
+        run: |
+          bundle exec db:setup
+          bundle exec rake test
         env:
           RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: mysecretpassword
